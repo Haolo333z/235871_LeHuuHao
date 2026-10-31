@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    image: haolo333z/backend-device:v1
+    image: haolo333z/backend:v1
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -14,7 +14,7 @@ services:
     restart: always
 
   frontend:
-    image: haolo333z/frontend-device:v1
+    image: haolo333z/frontend:v1
     build:
       context: ./frontend
       dockerfile: Dockerfile
