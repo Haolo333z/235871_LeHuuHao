@@ -77,8 +77,25 @@ docker run -d -p 5000:5000 --name backend-container \
   haolo333z/backend:latest
 
   ---
+##Câu 6. Đóng gói frontend bằng Docker và đẩy lên Docker Hub
+Viết Dockerfile để đóng gói frontend (multi-stage build với node:alpine để build và nginx:alpine để phục vụ web).
 
----
+Xây dựng Docker image cho frontend: haolo333z/frontend:latest.
+
+Chạy container và kiểm tra khả năng truy cập giao diện:
+
+Bash
+docker run -d -p 3000:80 --name frontend-container haolo333z/frontend:latest
+Đảm bảo frontend có thể kết nối đến backend theo cấu hình triển khai.
+
+Đặt tên image theo quy ước đã thống nhất: haolo333z/frontend:latest.
+
+Đẩy image frontend lên Docker Hub công khai thành công.
+
+Cập nhật README.md với hướng dẫn chạy frontend bằng Docker.
+
+Commit và push các thay đổi lên GitHub.
+   ---
 
 ## Câu 7. Triển khai frontend trên Render
 1. **Dịch vụ triển khai:** Tạo dịch vụ Static Site trên Render kết nối với nhánh `main` của repository GitHub `haolo333z/235871_LeHuuHao`.
