@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    image: haolo333z/backend-device:v1
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGO_URI=mongodb+srv://admin_exam:Hao12345678@cluster0.maoes6s.mongodb.net/235871_LeHuuHao?retryWrites=true&w=majority
+    restart: always
+
+  frontend:
+    image: haolo333z/frontend-device:v1
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
