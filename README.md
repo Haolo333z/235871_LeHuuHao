@@ -25,3 +25,5 @@ cat << 'EOF' > README.md
 ### Chạy Backend container:
 ```bash
 docker run -d -p 5000:5000 --name backend-container -e PORT=5000 -e MONGO_URI="mongodb+srv://admin_exam:Hao12345678@cluster0.maoes6s.mongodb.net/235871_LeHuuHao?retryWrites=true&w=majority" haolo333z/backend-device:v1
+## Thông tin triển khai Render
+- Frontend URL: https://web-235871.onrender.com
