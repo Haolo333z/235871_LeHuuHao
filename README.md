@@ -1,33 +1,44 @@
-cat << 'EOF' > README.md
-# Hệ thống quản lý thiết bị phòng học trên nền tảng đám mây
+# BÀI THI THỰC HÀNH ĐIỆN TOÁN ĐÁM MÂY
 
-- **Họ và tên:** Lê Hữu Hào
-- **MSSV:** 235871
-- **Học phần:** Điện toán đám mây
+## BẢNG THÔNG TIN NỘP BÀI (CÂU 9)
+| Mục | Thông tin triển khai |
+| :--- | :--- |
+| **Họ và tên sinh viên** | Lê Hữu Hào |
+| **Mã số sinh viên (MSSV)** | 235871 |
+| **Học phần** | Điện toán đám mây |
+| **Frontend Cloud URL** | [https://web-235871.onrender.com](https://web-235871.onrender.com) |
+| **Backend Cloud API URL** | [https://api-235871.onrender.com](https://api-235871.onrender.com) |
+| **API Health Check** | [https://api-235871.onrender.com/health](https://api-235871.onrender.com/health) |
+| **API Devices** | [https://api-235871.onrender.com/api/devices](https://api-235871.onrender.com/api/devices) |
+| **Docker Hub Backend** | haolo333z/backend:latest |
+| **Docker Hub Frontend** | haolo333z/frontend:latest |
+| **GitHub Repository** | [https://github.com/Haolo333z/235871_LeHuuHao](https://github.com/Haolo333z/235871_LeHuuHao) |
 
-## 1. Công nghệ sử dụng
-- **Frontend:** React (Vite)
-- **Backend:** Node.js, Express
-- **Cơ sở dữ liệu:** MongoDB Atlas
-- **Đóng gói & Triển khai:** Docker, Docker Hub, Render
+---
 
-## 2. Cấu trúc dự án
-- `backend/`: Chứa mã nguồn API, kết nối cơ sở dữ liệu MongoDB Atlas.
-- `frontend/`: Chứa giao diện người dùng React kết nối backend.
-- `README.md`: Tài liệu hướng dẫn cài đặt và thông tin triển khai.
+## 1. Giới thiệu hệ thống & Công nghệ sử dụng
+Hệ thống Quản lý Thiết bị Phòng học được xây dựng theo kiến trúc Microservices/Client-Server hiện đại, đóng gói container và triển khai tự động trên nền tảng Cloud:
+- **Frontend:** React (Vite), Axios, thiết kế giao diện tương thích responsive.
+- **Backend:** Node.js, Express RESTful API.
+- **Cơ sở dữ liệu (Database):** MongoDB Atlas (Cloud NoSQL Database).
+- **Đóng gói & Phân phối:** Docker, Docker Hub.
+- **Triển khai ứng dụng (Cloud Deployment):** Render (Static Site cho Frontend và Web Service cho Backend API).
 
-## 3. Hướng dẫn cài đặt và chạy thử nghiệm (Câu 5 & Câu 6)
+---
 
-### Thông tin Docker Images:
-- Backend Image: `haolo333z/backend-device:v1`
-- Frontend Image: `haolo333z/frontend-device:v1`
-
-### Chạy Backend container:
-```bash
-docker run -d -p 5000:5000 --name backend-container -e PORT=5000 -e MONGO_URI="mongodb+srv://admin_exam:Hao12345678@cluster0.maoes6s.mongodb.net/235871_LeHuuHao?retryWrites=true&w=majority" haolo333z/backend-device:v1
-## Thông tin triển khai Render
-- Frontend URL: https://web-235871.onrender.com
-
-## Thông tin triển khai Backend API (Câu 8)
-- Backend API URL: https://api-235871.onrender.com
-- Health Check: https://api-235871.onrender.com/health
+## 2. Cấu trúc thư mục dự án
+```text
+235871_LeHuuHao/
+├── backend/
+│   ├── models/            # Schema định nghĩa cấu trúc thiết bị MongoDB
+│   ├── routes/            # Các tuyến API CRUD thiết bị và Health check
+│   ├── server.js          # Khởi tạo Express server, kết nối Database
+│   ├── Dockerfile         # Đóng gói backend (node:20-alpine)
+│   └── package.json       # Thư viện phụ thuộc backend
+├── frontend/
+│   ├── src/               # Mã nguồn React giao diện người dùng
+│   ├── Dockerfile         # Đóng gói frontend chạy qua Nginx
+│   ├── nginx.conf         # Cấu hình web server Nginx
+│   └── package.json       # Thư viện phụ thuộc frontend
+├── docker-compose.yml     # Quản lý chạy đồng thời toàn bộ hệ thống
+└── README.md              # Báo cáo tổng hợp và hướng dẫn cài đặt
