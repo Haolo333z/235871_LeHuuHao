@@ -1,3 +1,4 @@
+cat << 'EOF' > README.md
 # Hệ thống quản lý thiết bị phòng học trên nền tảng đám mây
 
 - **Họ và tên:** Lê Hữu Hào
@@ -15,5 +16,12 @@
 - `frontend/`: Chứa giao diện người dùng React kết nối backend.
 - `README.md`: Tài liệu hướng dẫn cài đặt và thông tin triển khai.
 
-## 3. Hướng dẫn cài đặt và chạy thử nghiệm
-*(Sẽ cập nhật sau khi hoàn thành đóng gói Docker và triển khai)*
+## 3. Hướng dẫn cài đặt và chạy thử nghiệm (Câu 5 & Câu 6)
+
+### Thông tin Docker Images:
+- Backend Image: `haolo333z/backend-device:v1`
+- Frontend Image: `haolo333z/frontend-device:v1`
+
+### Chạy Backend container:
+```bash
+docker run -d -p 5000:5000 --name backend-container -e PORT=5000 -e MONGO_URI="mongodb+srv://admin_exam:Hao12345678@cluster0.maoes6s.mongodb.net/235871_LeHuuHao?retryWrites=true&w=majority" haolo333z/backend-device:v1
